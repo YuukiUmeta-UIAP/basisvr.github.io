@@ -2,10 +2,108 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BasisVR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1b2a; /* Deep navy blue */
+            color: #ffffff; /* White for main text */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1e293b; /* Slightly lighter navy */
+            color: #ff4f81; /* Vibrant red-pink */
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .link-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #1e293b; /* Same lighter navy for uniformity */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+
+        .link-container h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #4ce0d2; /* Teal for secondary highlights */
+        }
+
+        .links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .links li {
+            margin-bottom: 10px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #ff4f81; /* Red-pink as main link color */
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .links a:hover {
+            color: #9f7aea; /* Soft purple on hover */
+            text-shadow: 0 0 10px #9f7aea; /* Glow effect */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1e293b;
+            color: #4ce0d2; /* Teal accent for footer */
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #ff4f81;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #9f7aea; /* Matches link hover color */
+        }
+    </style>
 </head>
 <body>
-    <h1>BasisVR</h1>
-    Coming Soon...
+    <header>
+        <h1>BasisVR Link Directory</h1>
+    </header>
+
+    <main>
+        <div class="link-container">
+            <h2>Useful Links</h2>
+            <ul class="links">
+                <li><a href="https://github.com/BasisVR/Basis" target="_blank">GitHub Repository</a></li>
+                <li><a href="https://bsky.app/profile/basisvr.org" target="_blank">Bluesky Profile</a></li>
+                <li><a href="https://x.com/BasisVR" target="_blank">Twitter Profile</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 BasisVR. All rights reserved.
+    </footer>
 </body>
 </html>
