@@ -1,6 +1,18 @@
+/* =========================
+   Text Selection Highlight
+   ========================= */
 ::selection {
-    background: rgba(239,18,55,0.25);
+    background: rgba(239, 18, 55, 0.25); /* brand red at 25% */
 }
+
+::-moz-selection {
+    background: rgba(239, 18, 55, 0.25);
+}
+
+/* =========================
+   Animated Gradient
+   - Apply .animated-gradient to hero sections, cards, etc.
+   ========================= */
 @keyframes gradient-shift {
     0% {
         background-position: 0% 50%;
@@ -16,7 +28,21 @@
 }
 
 .animated-gradient {
-    background: linear-gradient(-45deg, #ef1237, #9333ea, #3b82f6, #f43f5e);
+    background: linear-gradient( -45deg, #ef1237, /* brand red */
+    #9333ea, /* purple */
+    #3b82f6, /* blue */
+    #f43f5e /* pink/red */
+    );
     background-size: 400% 400%;
     animation: gradient-shift 15s ease infinite;
+}
+
+/* =========================
+   Respect Reduced Motion
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+    .animated-gradient {
+        animation: none !important;
+        background-position: 50% 50%; /* freeze at center */
+    }
 }
