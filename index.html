@@ -1,206 +1,134 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BasisVR — Open-Source Social & Networked VR</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BasisVR — Open-Source Social & Networked VR</title>
 
-  <meta name="description" content="Basis lets you set up your own Social VR and Networked VR games with ease. MIT-licensed, open development, optional mods, and tools to equip VR creators." />
-  <meta property="og:title" content="BasisVR — Open-Source Social & Networked VR" />
-  <meta property="og:description" content="Set up your own Social VR and Networked VR games with ease." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/basisdiscord2.png" />
-  <meta name="theme-color" content="#ef1237" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#100f27" media="(prefers-color-scheme: dark)">
-  <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Basis lets you set up your own Social VR and Networked VR games with ease. MIT-licensed, open development, optional mods, and tools to equip VR creators." />
+    <meta property="og:title" content="BasisVR — Open-Source Social & Networked VR" />
+    <meta property="og:description" content="Set up your own Social VR and Networked VR games with ease." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/basisdiscord2.png" />
+    <meta name="theme-color" content="#ef1237" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#100f27" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark" />
 
-  <link rel="preconnect" href="https://fonts.bunny.net" />
-  <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
 
-  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
-          colors: {
-            brand: {
-              DEFAULT: '#ef1237',
-              100: '#ffd6de',
-              300: '#ff5775',
-              500: '#ef1237',
-              700: '#950a24'
-            },
-            basisbg: '#100f27'
-          }
-        }
-      },
-      darkMode: 'class'
-    };
-    (function(){
-      const stored = localStorage.getItem('theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = stored || (systemDark ? 'dark':'light');
-      if(theme==='dark') document.documentElement.classList.add('dark');
-    })();
-  </script>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 
-  <style>
-    ::selection{background:rgba(239,18,55,0.25);}
-  </style>
+    <!-- External config & theme -->
+    <script src="tailwind-config.js"></script>
+    <script src="theme.js" defer></script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-white text-gray-800 dark:bg-basisbg dark:text-gray-100 antialiased">
 
-  <!-- Decorative background -->
-  <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-    <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[50rem] w-[50rem] rounded-full bg-gradient-to-br from-brand/30 via-pink-500/20 to-purple-600/20 blur-3xl"></div>
-    <svg class="absolute bottom-[-20%] right-[-10%] h-[40rem] w-[40rem] opacity-20 dark:opacity-10" viewBox="0 0 100 100" fill="none">
-      <defs><linearGradient id="g" x1="0" y1="0" x2="100" y2="100">
-        <stop offset="0%" stop-color="#ef1237"/><stop offset="100%" stop-color="#9333ea"/>
-      </linearGradient></defs>
-      <circle cx="50" cy="50" r="46" stroke="url(#g)" stroke-width="1.5"/>
-    </svg>
-  </div>
-
-  <div class="mx-auto max-w-7xl px-6 py-8 sm:py-12">
-
-    <!-- Top bar -->
-    <div class="flex items-center justify-between">
-      <a href="/" class="inline-flex items-center gap-3">
-        <img src="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/BasisLogoN.png"
-             alt="BasisVR Logo"
-             class="h-10 w-10 rounded-lg ring-1 ring-gray-200 dark:ring-white/10"/>
-        <span class="font-semibold text-lg">BasisVR</span>
-      </a>
-      <a href="https://docs.basisvr.org/docs/getting-started" target="_blank" class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Docs</a>
+    <!-- Decorative background -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[50rem] w-[50rem] rounded-full bg-gradient-to-br from-brand/30 via-pink-500/20 to-purple-600/20 blur-3xl"></div>
+        <svg class="absolute bottom-[-20%] right-[-10%] h-[40rem] w-[40rem] opacity-20 dark:opacity-10" viewBox="0 0 100 100" fill="none">
+            <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="100" y2="100">
+                    <stop offset="0%" stop-color="#ef1237" />
+                    <stop offset="100%" stop-color="#9333ea" />
+                </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="46" stroke="url(#g)" stroke-width="1.5" />
+        </svg>
     </div>
 
-    <!-- Hero -->
-    <header class="mt-12 text-center">
-      <h1 class="text-4xl font-extrabold sm:text-6xl">
-        Build Social & Networked <span class="bg-gradient-to-r from-brand to-purple-600 bg-clip-text text-transparent">VR experiences</span> fast.
-      </h1>
-      <p class="mt-5 max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-300">
-        <strong>BasisVR</strong> lets you set up your own Social VR and Networked VR games with ease. MIT-licensed, open-source, and designed for creators.
-      </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href="https://github.com/BasisVR/basis" target="_blank"
-           class="inline-flex items-center gap-2 rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg hover:ring-2 hover:ring-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
-          GitHub
-        </a>
-        <a href="https://docs.basisvr.org" target="_blank"
-           class="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow ring-1 ring-gray-200 hover:bg-gray-50 dark:bg-white/10 dark:text-white dark:ring-white/10">
-          Read the docs
-        </a>
-        <a href="https://github.com/BasisVR/Basis/blob/developer/PHILOSOPHY.md" target="_blank"
-           class="inline-flex items-center gap-2 rounded-2xl bg-white/70 px-5 py-3 text-sm font-semibold text-gray-800 shadow ring-1 ring-gray-200 hover:bg-gray-100 dark:bg-white/10 dark:text-gray-100 dark:ring-white/10">
-          Philosophy
-        </a>
-      </div>
-    </header>
+    <div class="mx-auto max-w-7xl px-6 py-8 sm:py-12">
 
-    <!-- Banner -->
-    <section class="mx-auto mt-14 max-w-5xl">
-      <div class="relative overflow-hidden rounded-2xl ring-1 ring-black/10 dark:ring-white/10">
-        <img src="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/basisdiscord2.png"
-             alt="BasisVR Banner"
-             class="w-full object-cover"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-basisbg/70 to-transparent"></div>
-      </div>
-    </section>
+        <!-- Top bar -->
+        <div class="flex items-center justify-between">
+            <a href="/" class="inline-flex items-center gap-3">
+                <img src="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/BasisLogoN.png"
+                     alt="BasisVR Logo"
+                     class="h-10 w-10 rounded-lg ring-1 ring-gray-200 dark:ring-white/10" />
+                <span class="font-semibold text-lg">BasisVR</span>
+            </a>
+            <a href="https://docs.basisvr.org/docs/getting-started" target="_blank" class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Docs</a>
+        </div>
 
-    <!-- Showcase -->
-    <section class="mx-auto mt-20 max-w-5xl text-center">
-      <h2 class="text-3xl font-bold sm:text-4xl">Load Test Showcase</h2>
-      <p class="mt-3 text-gray-600 dark:text-gray-400">we run load tests and tests frequently on the basis demo!</p>
-      <div class="mt-8 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/10 dark:ring-white/10">
-        <img src="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/NameplateMassAmount.png"
-             alt="BasisVR Mass Load Test"
-             class="w-full object-cover aspect-video"/>
-      </div>
-      <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400">
-        Join us weekly for our <strong>Talk & Test</strong> sessions — connect, create, and stress-test VR together.
-      </figcaption>
-    </section>
+        <!-- Hero -->
+        <header class="mt-12 text-center">
+            <h1 class="text-4xl font-extrabold sm:text-6xl">
+                Build Social & Networked <span class="bg-gradient-to-r from-brand to-purple-600 bg-clip-text text-transparent">VR experiences</span> fast.
+            </h1>
+            <p class="mt-5 max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-300">
+                <strong>BasisVR</strong> lets you set up your own Social VR and Networked VR games with ease. MIT-licensed, open-source, and designed for creators.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+                <a href="https://github.com/BasisVR/basis" target="_blank"
+                   class="inline-flex items-center gap-2 rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg hover:ring-2 hover:ring-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                    GitHub
+                </a>
+                <a href="https://docs.basisvr.org" target="_blank"
+                   class="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow ring-1 ring-gray-200 hover:bg-gray-50 dark:bg-white/10 dark:text-white dark:ring-white/10">
+                    Read the docs
+                </a>
+                <a href="https://github.com/BasisVR/Basis/blob/developer/PHILOSOPHY.md" target="_blank"
+                   class="inline-flex items-center gap-2 rounded-2xl bg-white/70 px-5 py-3 text-sm font-semibold text-gray-800 shadow ring-1 ring-gray-200 hover:bg-gray-100 dark:bg-white/10 dark:text-gray-100 dark:ring-white/10">
+                    Philosophy
+                </a>
+            </div>
+        </header>
 
-    <!-- Project Links -->
-    <section class="mx-auto mt-16 max-w-4xl">
-      <h2 class="text-2xl font-semibold">Project Links</h2>
-      <ul class="mt-6 grid gap-4 sm:grid-cols-2">
-        <li>
-          <a href="https://github.com/BasisVR/basis" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
-            <div class="flex items-center gap-3">
-              <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 text-white">💻</div>
-              <div class="min-w-0">
+        <!-- Banner -->
+        <section class="mx-auto mt-14 max-w-5xl">
+            <div class="relative overflow-hidden rounded-2xl ring-1 ring-black/10 dark:ring-white/10">
+                <img src="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/basisdiscord2.png"
+                     alt="BasisVR Banner"
+                     class="w-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-basisbg/70 to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- Showcase -->
+        <section class="mx-auto mt-20 max-w-5xl text-center">
+            <h2 class="text-3xl font-bold sm:text-4xl">Load Test Showcase</h2>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">we run load tests and tests frequently on the basis demo!</p>
+            <div class="mt-8 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/10 dark:ring-white/10">
+                <img src="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/NameplateMassAmount.png"
+                     alt="BasisVR Mass Load Test"
+                     class="w-full object-cover aspect-video" />
+            </div>
+            <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+                Join us weekly for our <strong>Talk & Test</strong> sessions — connect, create, and stress-test VR together.
+            </figcaption>
+        </section>
+
+        <!-- Project Links --> <section class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold">Project Links</h2> 
+        <ul class="mt-6 grid gap-4 sm:grid-cols-2"> <li>
+            <a href="https://github.com/BasisVR/basis" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5"> 
+            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 text-white">💻</div>
+                <div class="min-w-0">
                 <h3 class="font-semibold">GitHub Repository</h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">Source, issues, PRs, and discussions.</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="https://docs.basisvr.org" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
-            <div class="flex items-center gap-3">
-              <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-white">📘</div>
-              <div class="min-w-0">
-                <h3 class="font-semibold">Documentation</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Get started, API, guides & examples.</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="https://bsky.app/profile/basisvr.org" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
-            <div class="flex items-center gap-3">
-              <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500 text-white">🦋</div>
-              <div class="min-w-0">
-                <h3 class="font-semibold">Bluesky</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Updates and community posts.</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="https://x.com/BasisVR" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
-            <div class="flex items-center gap-3">
-              <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 text-white">𝕏</div>
-              <div class="min-w-0">
-                <h3 class="font-semibold">Twitter</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Short news & release notes.</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li class="sm:col-span-2">
-          <a href="https://discord.gg/v6ve6WT562" class="group block rounded-2xl border border-gray-200 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
-            <div class="flex items-center gap-3">
-              <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 text-white">💬</div>
-              <div class="min-w-0">
-                <h3 class="font-semibold">Join the Basis Discord</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Hang out with other VR creators, ask questions, and share what you’re building.</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="https://opencollective.com/basis" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
-            <div class="flex items-center gap-3">
-              <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-white">💰</div>
-              <div class="min-w-0">
-                <h3 class="font-semibold">Open Collective</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Support development and hosting.</p>
-              </div>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </section>
+                    </div> </div> </a> </li> <li> 
+            <a href="https://docs.basisvr.org" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5"> 
+            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-white">📘</div> <div class="min-w-0"> <h3 class="font-semibold">Documentation</h3> 
+                <p class="text-sm text-gray-600 dark:text-gray-400">Get started, API, guides & examples.</p> </div> </div> </a> </li> <li>
+            <a href="https://bsky.app/profile/basisvr.org" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
+            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500 text-white">🦋</div> <div class="min-w-0"> <h3 class="font-semibold">Bluesky</h3> <p class="text-sm text-gray-600 dark:text-gray-400">Updates and community posts.</p>
+                             </div> </div> </a> </li> <li> <a href="https://x.com/BasisVR" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
+            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 text-white">𝕏</div> <div class="min-w-0"> <h3 class="font-semibold">Twitter</h3> <p class="text-sm text-gray-600 dark:text-gray-400">Short news & release notes.</p> </div> </div> </a> </li> <li class="sm:col-span-2">
+            <a href="https://discord.gg/v6ve6WT562" class="group block rounded-2xl border border-gray-200 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
+            <div class="flex items-center gap-3"> <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 text-white">💬</div> <div class="min-w-0"> <h3 class="font-semibold">Join the Basis Discord</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Hang out with other VR creators, ask questions, and share what you’re building.</p> </div> </div> </a> </li> <li> 
+            <a href="https://opencollective.com/basis" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5"> 
+            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-white">💰</div> <div class="min-w-0"> <h3 class="font-semibold">Open Collective</h3> <p class="text-sm text-gray-600 dark:text-gray-400">Support development and hosting.</p> </div>
+                </div> </a> </li> </ul> </section> <!-- Footer --> <footer class="mx-auto mt-16 max-w-7xl border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-white/10 dark:text-gray-400 text-center"> <p>&copy; <span id="year"></span> BasisVR. MIT Licensed.</p> </footer>
+    </div>
 
-    <!-- Footer -->
-    <footer class="mx-auto mt-16 max-w-7xl border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-white/10 dark:text-gray-400 text-center">
-      <p>&copy; <span id="year"></span> BasisVR. MIT Licensed.</p>
-    </footer>
-  </div>
-
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+    <!-- Footer JS -->
+    <script src="footer.js" defer></script>
 </body>
 </html>
