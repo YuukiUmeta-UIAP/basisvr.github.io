@@ -76,7 +76,11 @@
             <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
                 <h2 class="text-2xl font-bold">What is Basis?</h2>
                 <p class="mt-3 text-gray-700 dark:text-gray-300">
-                    The short answer: <strong>Basis is anything you want it to be—minus the heavy foundational work that limits creativity and agency.</strong>
+                    <strong>Basis is a foundation for your game project.</strong>
+                </p>
+                <p class="mt-3 text-gray-700 dark:text-gray-300">
+                    If you have an idea for a game but are overwhelmed by the massive amount of work it takes to support VR, look no further.
+                    We cover the basics for you: XR input, audio, player controller, networking, asset bundle loading, and more.
                 </p>
                 <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 list-disc pl-5">
                     <li><strong>Making a game?</strong> Focus on art and gameplay.</li>
@@ -100,36 +104,57 @@
 
         <!-- Why Basis vs. Toolkits -->
         <section id="why-basis" class="mx-auto mt-12 max-w-3xl">
-            <h2 class="text-3xl font-bold">Why Basis instead of “just XR Interaction Toolkit” (or similar)?</h2>
+            <h2 class="text-3xl font-bold">Why Basis over another XR toolkit?</h2>
             <div class="mt-6 grid gap-5">
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
-                    <h3 class="text-xl font-semibold">Networking & Multi-User by Design</h3>
+                    <h3 class="text-xl font-semibold">Networked and Multi-user Capable by Design</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
-                        Basis emphasizes multiplayer primitives—shared presence, synced interactions, and social affordances—so you don’t have to stitch together disparate systems.
+                        Not every project needs to be designed with multiplayer in mind, but every project that transitions
+                        from a standalone to a networked experience can benefit from having networked primitives available
+                        to them from the start. <strong>Basis offers best-in-class networking support</strong>, so you don’t
+                        have to stitch together disparate systems.
                     </p>
                 </article>
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
                     <h3 class="text-xl font-semibold">Our XR System</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
-                        We currently <strong>recommend our own XR system</strong> rather than XR ITK. We’re designing toward flexibility, but today our XR layer is the intended default.
+                        We are designing towards more modularity, but stand strongly behind our own XR system over alternatives
+                        such as XR Interaction Toolkit. It’s built with real, hard-won experience from testing against a wide
+                        range of hardware.
                     </p>
                 </article>
                 <article class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 shadow-soft p-6">
                     <h3 class="text-xl font-semibold">Modularity: In Development</h3>
                     <p class="mt-2 text-amber-900 dark:text-amber-100">
-                        We want Basis to be modular so teams can adopt individual parts (e.g., networking, embodiment) alongside other stacks. <strong>This is a roadmap goal, not fully realized yet.</strong>
+                        We want Basis to be modular so teams can adopt individual parts (e.g., networking, embodiment) alongside
+                        other stacks. <strong>This is a roadmap goal, not fully realized yet.</strong>
                     </p>
                 </article>
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
-                    <h3 class="text-xl font-semibold">Beyond Input: Presence, Spatialization, Embodiment</h3>
+                    <h3 class="text-xl font-semibold">Presence, Spatialization, Embodiment</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
-                        Typical toolkits wire up controllers. Basis focuses on how it <em>feels</em> to be there with others—the experiential building blocks needed for games, showcases, and events.
+                        The usual stack available to VR developers focuses on wiring up controllers, but offers very little direct
+                        help to fully realize virtual environments.
                     </p>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        We offer tools to help unify the next layer of VR interaction. Concretely this means we provide an
+                        <strong>avatar system</strong> and <strong>object interaction system</strong> as basic building blocks
+                        for the VR experience.
+                    </p>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        In essence, we frame this value in terms of three things we feel are necessary for virtual environments:
+                    </p>
+                    <ol class="list-decimal pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+                        <li><strong>Presence</strong> — feeling like you exist in a space.</li>
+                        <li><strong>Spatialization</strong> — your actions affect objects in physical space.</li>
+                        <li><strong>Embodiment</strong> — a tight, continuous loop between your body and its representation.</li>
+                    </ol>
                 </article>
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
                     <h3 class="text-xl font-semibold">Creative Freedom & Openness</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
-                        Our north star is maximizing creative freedom: open source, no walled garden, and a path toward mix-and-match components as the framework matures.
+                        Our north star is maximizing creator agency and freedom. We are committed to remaining open-source and
+                        unrestricted: we want to enable people to build to the limits of their imagination.
                     </p>
                 </article>
             </div>
@@ -141,10 +166,12 @@
             <div class="mt-6 grid gap-5">
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
                     <h3 class="text-xl font-semibold">1) Creator-First</h3>
-                    <p class="mt-2 text-gray-700 dark:text-gray-300">Basis reduces foundational lift so you can spend time on craft, not scaffolding.</p>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Basis reduces foundational lift so you can spend time on craft, not scaffolding.
+                    </p>
                 </article>
 
-                <!-- Principle #2 updated -->
+                <!-- Principle #2 updated previously -->
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
                     <h3 class="text-xl font-semibold">2) Creative Freedom by Design</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
@@ -154,7 +181,7 @@
                 </article>
 
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
-                    <h3 class="text-xl font-semibold">3) Social & Cultural Are the Moat</h3>
+                    <h3 class="text-xl font-semibold">3) Social &amp; Cultural Are the Moat</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
                         The future of VR is not just technical—it’s social and cultural. Basis helps you ship the tech fast so
                         you can invest energy in community, rituals, and identity.
@@ -169,11 +196,13 @@
                     </p>
                 </article>
 
+                <!-- Principle #5 updated -->
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
                     <h3 class="text-xl font-semibold">5) Framework, Not Platform</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
-                        Basis is not a Social VR platform. You can build one with it, but the project itself ships <em>frameworks and demos</em>,
-                        not a walled garden.
+                        Basis is not a Social VR platform. It includes useful primitives, but the core project is not intended to
+                        create the sort of scalable social infrastructure that Social VR platforms require. It does not specifically
+                        obstruct creators who wish to create their own, but the project itself ships <em>frameworks and demos</em>.
                     </p>
                 </article>
             </div>
@@ -273,39 +302,46 @@
         <section id="awesome" class="mx-auto mt-16 max-w-3xl">
             <h2 class="text-3xl font-bold">What Makes Basis Awesome</h2>
             <div class="mt-6 space-y-5">
+
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
                     <h3 class="text-xl font-semibold">Whitelabel & Self-Hostable</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
-                        Basis is a <strong>whitelabel, self-hostable Social VR framework</strong>. Under ideal circumstances,
-                        you can rebrand and tweak the project into a dedicated VR space for your players—from a single venue
-                        to a fully fledged multiplayer game. Player assets can be compatible across instances, empowering
-                        developers to launch their own creative ecosystems.
+                        Basis is a <strong>whitelabel, self-hostable VR framework</strong> built for flexibility.
+                        You can fully rebrand and customize it into your own dedicated VR space—whether that’s
+                        a cozy single venue for social hangouts or a large-scale multiplayer world.
+                        Player assets remain compatible across instances, giving developers the tools
+                        to launch thriving, interconnected creative ecosystems.
                     </p>
                 </article>
 
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
                     <h3 class="text-xl font-semibold">Proven Scale</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
-                        Basis has demonstrated <strong>high concurrency</strong> in single instances through community load tests,
-                        and we continue to push scale boundaries with regular stress sessions.
+                        Basis has already shown <strong>high concurrency performance</strong> in single-instance
+                        environments through extensive community load testing. Ongoing stress sessions
+                        ensure we continue to raise the bar for what’s possible in networked VR.
                     </p>
                 </article>
 
                 <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
                     <h3 class="text-xl font-semibold">Community Events & Load Tests</h3>
                     <p class="mt-2 text-gray-700 dark:text-gray-300">
-                        We host <strong>chat-and-chill load tests</strong> where developers, creators, and curious users can
-                        join the primary instance, socialize, and help us break concurrency records. These sessions are both
-                        fun and vital to ensuring Basis can support the next generation of networked VR experiences.
+                        Our <strong>chat-and-chill load tests</strong> bring together developers, creators,
+                        and curious explorers to socialize, collaborate, and push concurrency limits.
+                        These events are equal parts fun and crucial for stress-testing Basis at scale,
+                        helping us prepare for the next generation of networked VR.
                     </p>
                     <p class="mt-3 text-gray-700 dark:text-gray-300">
-                        Want to join? <strong>Basis is not yet public on Steam</strong> — a key can be requested from our admin
-                        staff in the Discord. Once you have access, download the Basis project on Steam and hop into our
-                        Discord for guidance. Our support channels can also help you port Unity-based avatars into Basis.
+                        Interested in joining? <strong>Basis isn’t publicly available on Steam yet</strong>,
+                        but you can request a key from our admin team in Discord. Once approved, download
+                        the Basis project on Steam and connect with our community for onboarding, support,
+                        and avatar porting assistance for Unity-based assets.
                     </p>
                 </article>
+
             </div>
         </section>
+
 
         <!-- Open Infrastructure Principles -->
         <section id="open-infra" class="mx-auto mt-16 max-w-3xl">
