@@ -24,15 +24,48 @@
     <script src="tailwind-config.js"></script>
     <script src="theme.js" defer></script>
 
-    <!-- Custom styles -->
+    <!-- Custom styles (contains .animated-gradient & selection styles) -->
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-white text-gray-800 dark:bg-basisbg dark:text-gray-100 antialiased">
 
-    <!-- Decorative background -->
+    <!-- =============================
+         Global Animated Gradient Backdrop
+         (from styles.css: .animated-gradient)
+         ============================= -->
+    <div aria-hidden="true"
+         class="animated-gradient fixed inset-0 -z-30 opacity-25 dark:opacity-20">
+    </div>
+
+    <!-- =============================
+         Decorative + Parallax Layers
+         (mousemove/scroll parallax handled by theme.js)
+         ============================= -->
     <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[50rem] w-[50rem] rounded-full bg-gradient-to-br from-brand/30 via-pink-500/20 to-purple-600/20 blur-3xl"></div>
-        <svg class="absolute bottom-[-20%] right-[-10%] h-[40rem] w-[40rem] opacity-20 dark:opacity-10" viewBox="0 0 100 100" fill="none">
+        <!-- Large blurred orb (center top) -->
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[50rem] w-[50rem]
+                rounded-full bg-gradient-to-br from-brand/20 via-pink-500/15 to-purple-600/15 blur-3xl">
+        </div>
+
+        <!-- Subtle parallax blurred shapes -->
+        <div data-parallax="8"
+             class="parallax-will-change absolute top-[12%] left-[8%] h-56 w-56
+                rounded-full bg-pink-400/25 dark:bg-pink-400/15 blur-3xl">
+        </div>
+
+        <div data-parallax="4"
+             class="parallax-will-change absolute bottom-[10%] right-[12%] h-80 w-80
+                rounded-full bg-purple-500/25 dark:bg-purple-500/15 blur-3xl">
+        </div>
+
+        <div data-parallax="2"
+             class="parallax-will-change absolute top-[35%] right-[35%] h-44 w-44
+                rounded-full bg-sky-400/25 dark:bg-sky-400/15 blur-3xl">
+        </div>
+
+        <!-- Decorative outline ring -->
+        <svg class="absolute bottom-[-20%] right-[-10%] h-[40rem] w-[40rem] opacity-20 dark:opacity-10"
+             viewBox="0 0 100 100" fill="none">
             <defs>
                 <linearGradient id="g" x1="0" y1="0" x2="100" y2="100">
                     <stop offset="0%" stop-color="#ef1237" />
@@ -43,8 +76,10 @@
         </svg>
     </div>
 
+    <!-- =============================
+         Page Content
+         ============================= -->
     <div class="mx-auto max-w-7xl px-6 py-8 sm:py-12">
-
         <!-- Top bar -->
         <div class="flex items-center justify-between">
             <a href="/" class="inline-flex items-center gap-3">
@@ -53,7 +88,8 @@
                      class="h-10 w-10 rounded-lg ring-1 ring-gray-200 dark:ring-white/10" />
                 <span class="font-semibold text-lg">BasisVR</span>
             </a>
-            <a href="https://docs.basisvr.org/docs/getting-started" target="_blank" class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Docs</a>
+            <a href="https://docs.basisvr.org/docs/getting-started" target="_blank"
+               class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Docs</a>
         </div>
 
         <!-- Hero -->
@@ -104,28 +140,89 @@
             </figcaption>
         </section>
 
-        <!-- Project Links --> <section class="mx-auto mt-16 max-w-4xl">
-        <h2 class="text-2xl font-semibold">Project Links</h2> 
-        <ul class="mt-6 grid gap-4 sm:grid-cols-2"> <li>
-            <a href="https://github.com/BasisVR/basis" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5"> 
-            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 text-white">💻</div>
-                <div class="min-w-0">
-                <h3 class="font-semibold">GitHub Repository</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Source, issues, PRs, and discussions.</p>
-                    </div> </div> </a> </li> <li> 
-            <a href="https://docs.basisvr.org" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5"> 
-            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-white">📘</div> <div class="min-w-0"> <h3 class="font-semibold">Documentation</h3> 
-                <p class="text-sm text-gray-600 dark:text-gray-400">Get started, API, guides & examples.</p> </div> </div> </a> </li> <li>
-            <a href="https://bsky.app/profile/basisvr.org" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
-            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500 text-white">🦋</div> <div class="min-w-0"> <h3 class="font-semibold">Bluesky</h3> <p class="text-sm text-gray-600 dark:text-gray-400">Updates and community posts.</p>
-                             </div> </div> </a> </li> <li> <a href="https://x.com/BasisVR" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
-            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 text-white">𝕏</div> <div class="min-w-0"> <h3 class="font-semibold">Twitter</h3> <p class="text-sm text-gray-600 dark:text-gray-400">Short news & release notes.</p> </div> </div> </a> </li> <li class="sm:col-span-2">
-            <a href="https://discord.gg/v6ve6WT562" class="group block rounded-2xl border border-gray-200 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
-            <div class="flex items-center gap-3"> <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 text-white">💬</div> <div class="min-w-0"> <h3 class="font-semibold">Join the Basis Discord</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Hang out with other VR creators, ask questions, and share what you’re building.</p> </div> </div> </a> </li> <li> 
-            <a href="https://opencollective.com/basis" class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5"> 
-            <div class="flex items-center gap-3"> <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-white">💰</div> <div class="min-w-0"> <h3 class="font-semibold">Open Collective</h3> <p class="text-sm text-gray-600 dark:text-gray-400">Support development and hosting.</p> </div>
-                </div> </a> </li> </ul> </section> <!-- Footer --> <footer class="mx-auto mt-16 max-w-7xl border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-white/10 dark:text-gray-400 text-center"> <p>&copy; <span id="year"></span> BasisVR. MIT Licensed.</p> </footer>
+        <!-- Project Links -->
+        <section class="mx-auto mt-16 max-w-4xl">
+            <h2 class="text-2xl font-semibold">Project Links</h2>
+            <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+                <li>
+                    <a href="https://github.com/BasisVR/basis"
+                       class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 text-white">💻</div>
+                            <div class="min-w-0">
+                                <h3 class="font-semibold">GitHub Repository</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Source, issues, PRs, and discussions.</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://docs.basisvr.org"
+                       class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-white">📘</div>
+                            <div class="min-w-0">
+                                <h3 class="font-semibold">Documentation</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Get started, API, guides & examples.</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://bsky.app/profile/basisvr.org"
+                       class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500 text-white">🦋</div>
+                            <div class="min-w-0">
+                                <h3 class="font-semibold">Bluesky</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Updates and community posts.</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://x.com/BasisVR"
+                       class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 text-white">𝕏</div>
+                            <div class="min-w-0">
+                                <h3 class="font-semibold">Twitter</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Short news & release notes.</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="sm:col-span-2">
+                    <a href="https://discord.gg/v6ve6WT562"
+                       class="group block rounded-2xl border border-gray-200 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 text-white">💬</div>
+                            <div class="min-w-0">
+                                <h3 class="font-semibold">Join the Basis Discord</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Hang out with other VR creators, ask questions, and share what you’re building.</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://opencollective.com/basis"
+                       class="group block rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:border-white/10 dark:bg-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-white">💰</div>
+                            <div class="min-w-0">
+                                <h3 class="font-semibold">Open Collective</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Support development and hosting.</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mx-auto mt-16 max-w-7xl border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-white/10 dark:text-gray-400 text-center">
+            <p>&copy; <span id="year"></span> BasisVR. MIT Licensed.</p>
+        </footer>
     </div>
 
     <!-- Footer JS -->
