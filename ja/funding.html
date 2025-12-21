@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BasisVR — How We Are Funded.</title>
+
+    <meta name="description" content="How BasisVR is run, how funding works, and how you can support the open-source Social & Networked VR framework." />
+    <meta property="og:title" content="BasisVR — How We Are Funded" />
+    <meta property="og:description" content="Transparent governance, funding sources, and sustainability for the BasisVR framework." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/basisdiscord2.png" />
+    <meta name="theme-color" content="#ef1237" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#100f27" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="index,follow" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+
+    <!-- External config & theme -->
+    <script src="/tailwind-config.js"></script>
+    <script src="/theme.js" defer></script>
+
+    <!-- Custom styles (contains .animated-gradient & selection styles) -->
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="bg-white text-gray-800 dark:bg-basisbg dark:text-gray-100 antialiased">
+
+    <!-- =============================
+         Global Animated Gradient Backdrop
+         ============================= -->
+    <div aria-hidden="true" class="animated-gradient fixed inset-0 -z-30 opacity-25 dark:opacity-20"></div>
+
+    <!-- =============================
+         Decorative + Parallax Layers
+         ============================= -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <!-- Large blurred orb (center top) -->
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[50rem] w-[50rem]
+                rounded-full bg-gradient-to-br from-brand/20 via-pink-500/15 to-purple-600/15 blur-3xl"></div>
+
+        <!-- Subtle parallax blurred shapes -->
+        <div data-parallax="8" class="parallax-will-change absolute top-[12%] left-[8%] h-56 w-56
+                rounded-full bg-pink-400/25 dark:bg-pink-400/15 blur-3xl"></div>
+
+        <div data-parallax="4" class="parallax-will-change absolute bottom-[10%] right-[12%] h-80 w-80
+                rounded-full bg-purple-500/25 dark:bg-purple-500/15 blur-3xl"></div>
+
+        <div data-parallax="2" class="parallax-will-change absolute top-[35%] right-[35%] h-44 w-44
+                rounded-full bg-sky-400/25 dark:bg-sky-400/15 blur-3xl"></div>
+
+        <!-- Decorative outline ring -->
+        <svg class="absolute bottom-[-20%] right-[-10%] h-[40rem] w-[40rem] opacity-20 dark:opacity-10"
+             viewBox="0 0 100 100" fill="none">
+            <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="100" y2="100">
+                    <stop offset="0%" stop-color="#ef1237" />
+                    <stop offset="100%" stop-color="#9333ea" />
+                </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="46" stroke="url(#g)" stroke-width="1.5" />
+        </svg>
+    </div>
+
+    <!-- =============================
+         Page Content
+         ============================= -->
+    <div class="mx-auto max-w-7xl px-6 py-8 sm:py-12">
+        <!-- Top bar -->
+        <div class="flex items-center justify-between">
+            <a href="/" class="inline-flex items-center gap-3 group">
+                <img src="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/BasisLogoN.png"
+                     alt="BasisVR Logo"
+                     class="h-10 w-10 rounded-lg ring-1 ring-gray-200 dark:ring-white/10 group-hover:scale-105 transition" loading="lazy" />
+                <span class="font-semibold text-lg">BasisVR</span>
+            </a>
+            <div class="flex items-center">
+                <!-- Nav -->
+                <nav class="flex items-center gap-3 md:gap-6">
+                    <a href="/features"
+                        class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Features</a>
+                    <a href="https://docs.basisvr.org/docs" target="_blank"
+                        class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Documentation</a>
+                    <a href="/funding"
+                        class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Funding</a>
+                    <a href="/philosophy"
+                        class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Philosophy</a>
+                </nav>
+                <!-- Language and github -->
+                <div class="flex items-center sm:border-l border-slate-100 ml-6 pl-6">
+                    <button data-popover-target="chg-lang" data-popover-trigger="click" type="button" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                            <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
+                            <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"/>
+                        </svg>
+                    </button>
+                    <div data-popover id="chg-lang" role="tooltip" class="absolute z-10 invisible inline-block w-32 text-sm text-body transition-opacity duration-300 rounded-2xl border border-gray-200 bg-white shadow-xs opacity-0">
+                        <div class="px-6 py-4">
+                            <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? ''    + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/'   )">English</a></div>
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/cn' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/cn/')">简体中文</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/tw' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/tw/')">繁體中文</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/es' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/es/')">Español</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/fr' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/fr/')">Français</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/de' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/de/')">Deutsch</a></div> -->
+                            <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/ja' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/ja/')">日本語</a></div>
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/ko' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/ko/')">한국어</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/pt' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/pt/')">Português</a></div> -->
+                        </div>
+                        <div data-popper-arrow></div>
+                    </div>
+                    <a href="https://github.com/BasisVR/basis" target="_blank" class="ml-6 block text-gray-500 hover:text-gray-700">
+                        <span class="sr-only">BasisVR on GitHub</span>
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero -->
+        <header class="mt-12 text-center">
+            <h1 class="text-4xl font-extrabold sm:text-6xl">
+              Basis <span class="bg-gradient-to-r from-brand to-purple-600 bg-clip-text text-transparent">Funding</span>
+            </h1>
+            <p class="mt-5 max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-300">
+                BasisVR is an MIT-licensed, creator-first VR framework. This page explains <strong>how we run the project</strong>,
+                <strong>where the money goes</strong>, and <strong>how you can help</strong>.
+            </p>
+
+            <!-- Status pill -->
+            <div class="mx-auto mt-6 max-w-xl">
+                <div class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 px-4 py-3 text-sm text-amber-900 dark:text-amber-100">
+                    <strong>Status:</strong> We ship frequently and are building toward a stronger process (versioning, migration guides, moderation tooling).
+                    Some pieces are still in progress - thanks for your patience while we get this vision across the line.
+                </div>
+            </div>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+                <a href="https://opencollective.com/basis" target="_blank"
+                   class="inline-flex items-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                    Support us via OpenCollective
+                </a>
+                <a href="https://discord.gg/v6ve6WT562" target="_blank"
+                   class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                    Join the Discord
+                </a>
+                <a href="https://docs.basisvr.org/docs" target="_blank"
+                   class="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow ring-1 ring-gray-200 hover:bg-gray-50 dark:bg-white/10 dark:text-white dark:ring-white/10">
+                    Read the Docs
+                </a>
+            </div>
+        </header>
+
+        <!-- How We Are Funded -->
+        <section id="funding" class="mx-auto mt-16 max-w-4xl">
+            <h2 class="text-3xl font-bold">How We Are Funded</h2>
+            <p class="mt-4 text-gray-700 dark:text-gray-300">
+                BasisVR is sustained by a mix of <strong>community donations</strong> and <strong>collaborations with companies</strong>
+                who build on the framework. Funds are pooled to tackle shared problems (e.g., networking, embodiment, tooling) that benefit everyone.
+            </p>
+
+            <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                <!-- Donations -->
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Community Donations</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Individuals contribute via <a class="underline decoration-emerald-500/60 decoration-2 underline-offset-2 hover:text-emerald-600" href="https://opencollective.com/basis" target="_blank">OpenCollective</a>.
+                        These funds primarily support full-time maintenance and developer experience work.
+                    </p>
+                    <ul class="mt-3 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Monthly & one-time options</li>
+                        <li>Public backer wall & transparent ledger</li>
+                    </ul>
+                </article>
+
+                <!-- Collaborations -->
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Company Collaborations</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Companies sponsor roadmap items or co-fund features (e.g., networking improvements, avatar systems).
+                        Work lands upstream and remains MIT-licensed by default.
+                    </p>
+                    <ul class="mt-3 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Shared infrastructure > bespoke forks</li>
+                        <li>Clear deliverables, open development</li>
+                    </ul>
+                </article>
+
+                <!-- Grants -->
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Grants & Philanthropy</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        When available, grants fund foundational R&amp;D and documentation. Grants do not affect project licensing or independence.
+                    </p>
+                </article>
+
+                <!-- Services -->
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Optional Services</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Limited consulting, training, and integration support are offered when capacity allows. Revenue here helps stabilize maintenance.
+                    </p>
+                </article>
+            </div>
+
+            <!-- Allocation -->
+            <div class="mt-8 rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                <h3 class="text-xl font-semibold">How Funds Are Allocated</h3>
+                <p class="mt-2 text-gray-700 dark:text-gray-300">
+                    We keep a simple and transparent allocation model. Percentages may shift with project needs; we document changes in monthly notes.
+                </p>
+                <div class="mt-4 overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="text-gray-600 dark:text-gray-300">
+                            <tr>
+                                <th class="py-2 pr-4">Category</th>
+                                <th class="py-2 pr-4">Examples</th>
+                                <th class="py-2 pr-4">Typical Share</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200/70 dark:divide-white/10">
+                            <tr>
+                                <td class="py-3 pr-4 font-medium">Core Maintenance</td>
+                                <td class="py-3 pr-4">Architecture, reviews, bug fixes, releases</td>
+                                <td class="py-3 pr-4">~40–60%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-medium">Roadmap Features</td>
+                                <td class="py-3 pr-4">Networking, embodiment, DX improvements</td>
+                                <td class="py-3 pr-4">~20–40%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-medium">Documentation & Community</td>
+                                <td class="py-3 pr-4">Guides, examples, onboarding</td>
+                                <td class="py-3 pr-4">~10–20%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-medium">Infra & Operations</td>
+                                <td class="py-3 pr-4">Hosting for tests, CI, tooling</td>
+                                <td class="py-3 pr-4">~5–10%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-3 text-xs text-gray-500 dark:text-gray-400">
+                    These ranges are indicative, not contractual. We publish adjustments alongside release notes when priorities shift.
+                </p>
+            </div>
+
+            <!-- Transparency -->
+            <div class="mt-8 grid gap-5 sm:grid-cols-2">
+                <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Transparency</h3>
+                    <ul class="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Public ledger on OpenCollective</li>
+                        <li>Quarterly updates summarizing expenditures and their impact</li>
+                        <li>Attribution for sponsored work in release notes</li>
+                    </ul>
+                </div>
+                <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Independence</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Sponsors do not control the project. The Pillars are accountable to the community and the long-term health of the framework.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How We Operate -->
+        <section id="operate" class="mx-auto mt-16 max-w-4xl">
+            <h2 class="text-3xl font-bold">How We Operate</h2>
+
+            <!-- Community Talent -->
+            <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                <h3 class="text-xl font-semibold">Community Talent</h3>
+                <p class="mt-2 text-gray-700 dark:text-gray-300">
+                    One of the most exciting parts of BasisVR is how it <strong>creates opportunities for contributors</strong>.
+                    Many people from our community have been <strong>hired or contracted to build features</strong> directly within the project.
+                    This is a win-win: contributors get paid and gain real experience, while Basis gets stronger and better aligned with the needs of its creators.
+                </p>
+                <p class="mt-2 text-gray-700 dark:text-gray-300">
+                    Pulling talent directly from our contributor base ensures that work is done by people who understand the framework deeply and share in its vision.
+                </p>
+            </article>
+
+            <div class="mt-6 grid gap-5">
+                <!-- Pillars -->
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">The Pillars</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        The project is stewarded by <strong>the Pillars</strong> - trusted contributors who keep the work aligned and on-mission.
+                        They maintain quality, ensure scope discipline, and help sequence what lands when.
+                    </p>
+                    <ul class="mt-3 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Guardrails on scope & architecture</li>
+                        <li>Roadmap stewardship & release approvals</li>
+                        <li>Onboarding maintainers and reviewing RFCs</li>
+                    </ul>
+                </article>
+
+                <!-- Maintainers -->
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Maintainers & Full-Time Work</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Today, <strong>Dooly works full-time on Basis</strong>. The maintainer(s) focus on core architecture, stability, and developer experience.
+                        Donations and collaborations directly fund this work.
+                    </p>
+                </article>
+
+                <!-- Decision Process -->
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Decision Process</h3>
+                    <ol class="mt-2 list-decimal pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li><strong>Issues / Proposals:</strong> Open an issue or discussion for bugs, features, or questions.</li>
+                        <li><strong>RFC (optional but encouraged):</strong> For meaningful changes, submit an RFC summarizing the problem, approach, and trade-offs.</li>
+                        <li><strong>Review:</strong> Maintainers and Pillars provide feedback; contributors iterate.</li>
+                        <li><strong>Land & Ship:</strong> When stable, we merge behind feature flags where appropriate and plan releases.</li>
+                    </ol>
+                </article>
+
+                <!-- Admins & Moderation -->
+                <article id="moderation" class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Admins & Moderation</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        We want healthy spaces for building and testing. <strong>Admins</strong> ensure people behave and handle
+                        admin-related posts (announcements, keys/access, incident handling). <strong>Moderators</strong> keep conversations
+                        constructive, de-escalate conflicts, and apply community guidelines.
+                    </p>
+                    <div class="mt-3 grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-xl border border-gray-200/70 dark:border-white/10 p-4">
+                            <h4 class="font-semibold">Admin Responsibilities</h4>
+                            <ul class="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1 text-sm">
+                                <li>Access control & server/test event logistics</li>
+                                <li>Rule enforcement for severe or repeat issues</li>
+                                <li>Incident response & transparency notes</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-xl border border-gray-200/70 dark:border-white/10 p-4">
+                            <h4 class="font-semibold">Moderator Responsibilities</h4>
+                            <ul class="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1 text-sm">
+                                <li>Day-to-day conversation moderation</li>
+                                <li>Guidance for newcomers & conflict mediation</li>
+                                <li>Escalation to admins when needed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="mt-3 text-xs text-gray-500 dark:text-gray-400">
+                        We’re developing clearer tools, flows, and public policies to support admins/mods and keep community spaces welcoming.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Releases & Stability -->
+        <section id="releases" class="mx-auto mt-16 max-w-4xl">
+            <h2 class="text-3xl font-bold">Releases & Stability</h2>
+            <div class="mt-6 grid gap-5">
+                <article class="rounded-2xl border border-emerald-300/70 dark:border-emerald-200/20 bg-emerald-50/70 dark:bg-emerald-200/10 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Frequent Releases</h3>
+                    <p class="mt-2 text-emerald-900 dark:text-emerald-100">
+                        We <strong>release frequently</strong> to keep the pace of development high. Experimental features are available quickly, letting early adopters test and give feedback before stabilization.
+                    </p>
+                </article>
+
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Long-Term Support (LTS)</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Every few months, we cut an <strong>LTS (Long-Term Support) release</strong>. These versions roll up experimental changes that have been tested and validated by the community, promoting them to stable.
+                    </p>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        LTS releases give teams confidence: they can build on a stable foundation while still knowing that innovation is happening in the background.
+                    </p>
+                </article>
+
+                <article class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Work in Progress</h3>
+                    <ul class="mt-2 list-disc pl-5 text-amber-900 dark:text-amber-100 space-y-1">
+                        <li><strong>Semantic versioning</strong> across core packages is not yet in place.</li>
+                        <li><strong>Migration guides</strong> for breaking changes are still being developed.</li>
+                    </ul>
+                    <p class="mt-3 text-amber-900 dark:text-amber-100">
+                        We’re working towards these milestones, alongside better release notes and upgrade tooling. Until then, expect some churn—but know that stability is a top priority.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Releases & Stability (WIP honesty) -->
+        <section id="releases" class="mx-auto mt-16 max-w-4xl">
+            <h2 class="text-3xl font-bold">Releases & Stability (Work in Progress)</h2>
+            <div class="mt-6 grid gap-5">
+                <article class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Where We Are Today</h3>
+                    <ul class="mt-2 list-disc pl-5 text-amber-900 dark:text-amber-100 space-y-1">
+                        <li>We <strong>release frequently</strong> to keep momentum high.</li>
+                        <li><strong>No formal semantic versioning</strong> across all packages yet.</li>
+                        <li><strong>No full migration guides</strong> for breaking changes yet.</li>
+                    </ul>
+                    <p class="mt-3 text-amber-900 dark:text-amber-100">
+                        If you’re adopting Basis right now, expect change. We’ll call out risky areas in notes and try to minimize churn in core paths.
+                    </p>
+                </article>
+
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">What We’re Working Toward</h3>
+                    <ul class="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Introduce <strong>semantic versioning</strong> for core packages</li>
+                        <li>Publish <strong>migration guides</strong> when breaking changes land</li>
+                        <li>Expand <strong>release notes</strong> with “breaking/risky” callouts</li>
+                        <li>Harden CI and add <strong>upgrade test suites</strong></li>
+                    </ul>
+                    <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+                        We’ll announce milestones in Discord and summarize changes in docs/release threads as this matures.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Where We're Headed -->
+        <section id="roadmap" class="mx-auto mt-16 max-w-4xl">
+            <h2 class="text-3xl font-bold">Where We’re Headed</h2>
+            <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Process & Stability</h3>
+                    <ul class="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>SemVer in core packages</li>
+                        <li>Migration guides & upgrade tooling</li>
+                        <li>Better pre-release channels</li>
+                    </ul>
+                </div>
+                <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Community & Moderation</h3>
+                    <ul class="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Clear admin/mod policies</li>
+                        <li>Incident playbooks & transparency posts</li>
+                        <li>Moderation/UI tooling for tests & events</li>
+                    </ul>
+                </div>
+                <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Developer Experience</h3>
+                    <ul class="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Example scenes & quickstarts</li>
+                        <li>More modular packages</li>
+                        <li>Performance & networking guides</li>
+                    </ul>
+                </div>
+                <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Openness & Interop</h3>
+                    <ul class="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Documented protocols & boundaries</li>
+                        <li>Federated discovery experiments</li>
+                        <li>Upstream-first collaboration norms</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                There’s more to do. If you want to help, sponsoring features or contributing code accelerates everything.
+            </p>
+        </section>
+
+        <!-- Ways to Support -->
+        <section id="support" class="mx-auto mt-16 max-w-4xl">
+            <h2 class="text-3xl font-bold">Ways to Support</h2>
+            <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                <article class="rounded-2xl border border-emerald-300/70 dark:border-emerald-200/20 bg-emerald-50/70 dark:bg-emerald-200/10 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Back the Project</h3>
+                    <p class="mt-2 text-emerald-900 dark:text-emerald-100">
+                        Become a monthly backer on OpenCollective. Your support keeps a maintainer full-time and speeds up releases.
+                    </p>
+                    <a href="https://opencollective.com/basis" target="_blank"
+                       class="mt-4 inline-flex items-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                        OpenCollective
+                    </a>
+                </article>
+
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Sponsor a Feature</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Have a roadmap need? Fund a piece of core infrastructure. We scope deliverables together and land work upstream for everyone.
+                    </p>
+                    <a href="https://discord.gg/v6ve6WT562" target="_blank"
+                       class="mt-4 inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                        Chat with us on Discord
+                    </a>
+                </article>
+
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft sm:col-span-2">
+                    <h3 class="text-xl font-semibold">Contribute Code & Knowledge</h3>
+                    <ul class="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Fix issues, improve docs, or add examples</li>
+                        <li>Share performance findings from load tests</li>
+                        <li>Help triage, review, and mentor new contributors</li>
+                    </ul>
+                    <div class="mt-4 flex flex-wrap gap-3">
+                        <a href="https://github.com/BasisVR/basis" target="_blank"
+                           class="inline-flex items-center gap-2 rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg hover:ring-2 hover:ring-brand">
+                            GitHub
+                        </a>
+                        <a href="https://docs.basisvr.org" target="_blank"
+                           class="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow ring-1 ring-gray-200 hover:bg-gray-50 dark:bg-white/10 dark:text-white dark:ring-white/10">
+                            Docs
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="mx-auto mt-16 max-w-4xl">
+            <h2 class="text-3xl font-bold">FAQ</h2>
+            <div class="mt-6 divide-y divide-gray-200/70 dark:divide-white/10 rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft">
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">Is Basis a platform?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        No. Basis is a <strong>framework</strong>. You can build a platform with it, but Basis itself doesn’t operate one.
+                    </p>
+                </details>
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">Who decides what gets built?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        Proposals are discussed in public. Maintainers and the Pillars steward scope and sequence based on impact, fit, and resourcing.
+                    </p>
+                </details>
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">How do paid collaborations work?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        We co-define deliverables, timelines, and checkpoints. Work lands upstream by default and remains MIT-licensed unless explicitly negotiated otherwise.
+                    </p>
+                </details>
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">Can I earmark funding for a specific feature?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        Yes. We’re happy to scope a feature sponsorship. If accepted, it gets a labeled milestone and public tracking.
+                    </p>
+                </details>
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">Do you publish spending reports?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        OpenCollective provides a public ledger. We also share periodic summaries tying spend to outcomes in release notes or community updates.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="cta" class="mx-auto mt-16 max-w-4xl text-center">
+            <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-8">
+                <h2 class="text-2xl font-bold">Help Drive Open VR Forward</h2>
+                <p class="mt-3 text-gray-700 dark:text-gray-300">
+                    We’re moving fast, tightening process, and building tools creators need. If this vision resonates, jump in.
+                </p>
+                <div class="mt-6 flex flex-wrap justify-center gap-3">
+                    <a href="https://opencollective.com/basis" target="_blank"
+                       class="inline-flex items-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                        Become a Backer
+                    </a>
+                    <a href="https://github.com/BasisVR/basis" target="_blank"
+                       class="inline-flex items-center gap-2 rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg hover:ring-2 hover:ring-brand">
+                        Contribute on GitHub
+                    </a>
+                    <a href="https://discord.gg/v6ve6WT562" target="_blank"
+                       class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                        Talk to the Team
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mx-auto mt-16 max-w-7xl border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-white/10 dark:text-gray-400 text-center">
+            <p>&copy; <span id="year"></span> BasisVR. MIT Licensed.</p>
+        </footer>
+    </div>
+
+    <!-- Footer Year -->
+    <script src="/footer.js" defer></script>
+    <!-- Flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+</body>
+</html>

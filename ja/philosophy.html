@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Basis Philosophy — Creator-First, Creative Freedom</title>
+
+    <meta name="description" content="Basis is a creator-first, open-source VR framework focused on Creative Freedom. We aim to empower developers and communities to build without lock-in, and we’re transparent about what’s shipped today versus what’s in development." />
+    <meta property="og:title" content="Basis Philosophy — Creator-First, Creative Freedom VR Framework" />
+    <meta property="og:description" content="Basis is a framework, not a platform. Creator-first, freedom-focused, and honest about current capabilities and roadmap." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/basisdiscord2.png" />
+    <meta name="theme-color" content="#ef1237" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#100f27" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="index,follow" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- JSON-LD schema -->
+    <script src="/schema.js" type="application/ld+json"></script>
+
+    <!-- Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+
+    <!-- Theme & Custom JS -->
+    <script src="/theme.js" defer></script>
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="bg-white text-gray-800 dark:bg-basisbg dark:text-gray-100 antialiased">
+
+    <!-- Global animated gradient backdrop -->
+    <div aria-hidden="true"
+         class="animated-gradient fixed inset-0 -z-30 opacity-25 dark:opacity-20">
+    </div>
+
+    <!-- Decorative + Parallax background layer -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <!-- existing blurred orb -->
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[50rem] w-[50rem] rounded-full bg-gradient-to-br from-brand/20 via-pink-500/15 to-purple-600/15 blur-3xl"></div>
+
+        <!-- subtle parallax shapes (mouse-move) -->
+        <div data-parallax="8"
+             class="parallax-will-change absolute top-[12%] left-[8%] h-56 w-56 rounded-full bg-pink-400/25 dark:bg-pink-400/15 blur-3xl">
+        </div>
+
+        <div data-parallax="4"
+             class="parallax-will-change absolute bottom-[10%] right-[12%] h-80 w-80 rounded-full bg-purple-500/25 dark:bg-purple-500/15 blur-3xl">
+        </div>
+
+        <div data-parallax="2"
+             class="parallax-will-change absolute top-[35%] right-[35%] h-44 w-44 rounded-full bg-sky-400/25 dark:bg-sky-400/15 blur-3xl">
+        </div>
+
+        <!-- existing outline ring -->
+        <svg class="absolute bottom-[-20%] right-[-10%] h-[40rem] w-[40rem] opacity-20 dark:opacity-10" viewBox="0 0 100 100" fill="none">
+            <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="100" y2="100">
+                    <stop offset="0%" stop-color="#ef1237" />
+                    <stop offset="100%" stop-color="#9333ea" />
+                </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="46" stroke="url(#g)" stroke-width="1.5" />
+        </svg>
+    </div>
+
+    <div class="mx-auto max-w-5xl px-6 py-8 sm:py-12">
+        <!-- Top bar -->
+        <div class="flex items-center justify-between">
+            <a href="/" class="inline-flex items-center gap-3 group">
+                <img src="https://raw.githubusercontent.com/BasisVR/basisvr.github.io/main/Images/BasisLogoN.png"
+                     alt="BasisVR Logo"
+                     class="h-10 w-10 rounded-lg ring-1 ring-gray-200 dark:ring-white/10 group-hover:scale-105 transition" loading="lazy" />
+                <span class="font-semibold text-lg">BasisVR</span>
+            </a>
+            <div class="flex items-center">
+                <!-- Nav -->
+                <nav class="flex items-center gap-3 md:gap-6">
+                    <a href="/features"
+                        class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Features</a>
+                    <a href="https://docs.basisvr.org/docs" target="_blank"
+                        class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Documentation</a>
+                    <a href="/funding"
+                        class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Funding</a>
+                    <a href="/philosophy"
+                        class="hidden sm:inline text-sm text-gray-600 dark:text-gray-300 hover:text-brand">Philosophy</a>
+                </nav>
+                <!-- Language and github -->
+                <div class="flex items-center sm:border-l border-slate-100 ml-6 pl-6">
+                    <button data-popover-target="chg-lang" data-popover-trigger="click" type="button" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                            <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
+                            <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"/>
+                        </svg>
+                    </button>
+                    <div data-popover id="chg-lang" role="tooltip" class="absolute z-10 invisible inline-block w-32 text-sm text-body transition-opacity duration-300 rounded-2xl border border-gray-200 bg-white shadow-xs opacity-0">
+                        <div class="px-6 py-4">
+                            <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? ''    + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/'   )">English</a></div>
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/cn' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/cn/')">简体中文</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/tw' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/tw/')">繁體中文</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/es' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/es/')">Español</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/fr' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/fr/')">Français</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/de' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/de/')">Deutsch</a></div> -->
+                            <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/ja' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/ja/')">日本語</a></div>
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/ko' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/ko/')">한국어</a></div> -->
+                            <!-- <div class="px-2 py-1"><a href="javascript:void(0)" onclick="this.href=location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '') === location.pathname ? '/pt' + location.pathname : location.pathname.replace(/^\/(cn|tw|es|fr|de|ja|ko|pt)\//, '/pt/')">Português</a></div> -->
+                        </div>
+                        <div data-popper-arrow></div>
+                    </div>
+                    <a href="https://github.com/BasisVR/basis" target="_blank" class="ml-6 block text-gray-500 hover:text-gray-700">
+                        <span class="sr-only">BasisVR on GitHub</span>
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="mt-12 text-center">
+            <h1 class="text-4xl font-extrabold sm:text-6xl">
+                Basis Philosophy: <span class="bg-gradient-to-r from-brand to-purple-600 bg-clip-text text-transparent">Creator-First, Creative Freedom</span>
+            </h1>
+            <p class="mt-5 max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-300">
+                Basis is a <strong>framework</strong>, not a platform. We aim to put powerful VR building blocks in everyone’s hands without lock-in.
+            </p>
+        </header>
+
+        <!-- What is Basis -->
+        <section id="what-is-basis" class="mx-auto mt-12 max-w-3xl">
+            <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
+                <h2 class="text-2xl font-bold">What is Basis?</h2>
+                <p class="mt-3 text-gray-700 dark:text-gray-300">
+                    <strong>Basis is a foundation for your VR project.</strong>
+                </p>
+                <p class="mt-3 text-gray-700 dark:text-gray-300">
+                    If you have an idea for a VR application but are overwhelmed by the massive amount of work it takes to support VR, look no further.
+                    We cover the basics for you: XR input, audio, player controller, networking, asset bundle loading, and more.
+                </p>
+                <ul class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 list-disc pl-5">
+                    <li><strong>Making a game?</strong> Focus on art and gameplay.</li>
+                    <li><strong>Hosting an event?</strong> Design the venue and the flow.</li>
+                    <li><strong>Have an idea but overwhelmed by VR plumbing?</strong> Use Basis as the starting point.</li>
+                </ul>
+                <details class="mt-5 group">
+                    <summary class="cursor-pointer font-semibold text-gray-900 dark:text-gray-100">Technically…</summary>
+                    <div class="mt-3 text-gray-700 dark:text-gray-300 space-y-3">
+                        <p><strong>Framework</strong> = a set of Unity/C# libraries and a demo showing how components fit together. Built with URP, targeting IL2CPP.</p>
+                        <p>It focuses on the three building blocks of good VR:</p>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li><strong>Presence</strong> — feeling like you exist in a space.</li>
+                            <li><strong>Spatialization</strong> — your actions affect objects in physical space.</li>
+                            <li><strong>Embodiment</strong> — a tight, continuous loop between your body and its representation.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Sustainability & Governance -->
+        <section id="sustainability" class="mx-auto mt-16 max-w-3xl">
+            <h2 class="text-3xl font-bold">Sustainability & Governance</h2>
+            <p class="mt-4 text-gray-700 dark:text-gray-300">
+                Basis survives thanks to a mix of <strong>community donations</strong> and <strong>collaborations with companies</strong>
+                who build products on top of the framework. By <strong>bundling funds from multiple organizations</strong>,
+                we tackle hard problems that benefit everyone: examples include work like the <em>jiggle system</em> and <em>QUIC integration</em>.
+            </p>
+            <p class="mt-4 text-gray-700 dark:text-gray-300">
+                Today, <strong>Dooly works full-time on Basis</strong>, and donations directly support their livelihood and the project’s momentum.
+            </p>
+            <p class="mt-4 text-gray-700 dark:text-gray-300">
+                Basis is operated by <strong>the Pillars</strong>, trusted contributors who keep the effort on the narrow straight,
+                ensuring the project stays aligned and does not get derailed.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+                <a href="https://opencollective.com/basis" target="_blank"
+                   class="inline-flex items-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                    Support via OpenCollective
+                </a>
+                <a href="https://discord.gg/v6ve6WT562" target="_blank"
+                   class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                    Join the Discord
+                </a>
+            </div>
+        </section>
+
+        <!-- Why Basis vs. Toolkits -->
+        <section id="why-basis" class="mx-auto mt-12 max-w-3xl">
+            <h2 class="text-3xl font-bold">Why Basis over another XR toolkit?</h2>
+            <div class="mt-6 grid gap-5">
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">Networked and Multi-user Capable by Design</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Not every project needs to be designed with multiplayer in mind, but every project that transitions
+                        from a standalone to a networked experience can benefit from having networked primitives available
+                        to them from the start. <strong>Basis offers best-in-class networking support</strong>, so you don’t
+                        have to stitch together disparate systems.
+                    </p>
+                </article>
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">Our XR System</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        We are designing towards more modularity, but stand strongly behind our own XR system over alternatives
+                        such as XR Interaction Toolkit. It’s built with real, hard-won experience from testing against a wide
+                        range of hardware.
+                    </p>
+                </article>
+                <article class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">Modularity: In Development</h3>
+                    <p class="mt-2 text-amber-900 dark:text-amber-100">
+                        We want Basis to be modular so teams can adopt individual parts (e.g., networking, embodiment) alongside
+                        other stacks. <strong>This is a roadmap goal, not fully realized yet.</strong>
+                    </p>
+                </article>
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">Presence, Spatialization, Embodiment</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        The usual stack available to VR developers focuses on wiring up controllers, but offers very little direct
+                        help to fully realize virtual environments.
+                    </p>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        We offer tools to help unify the next layer of VR interaction. Concretely this means we provide an
+                        <strong>avatar system</strong> and <strong>object interaction system</strong> as basic building blocks
+                        for the VR experience.
+                    </p>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        In essence, we frame this value in terms of three things we feel are necessary for virtual environments:
+                    </p>
+                    <ol class="list-decimal pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+                        <li><strong>Presence</strong> — feeling like you exist in a space.</li>
+                        <li><strong>Spatialization</strong> — your actions affect objects in physical space.</li>
+                        <li><strong>Embodiment</strong> — a tight, continuous loop between your body and its representation.</li>
+                    </ol>
+                </article>
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">Creative Freedom & Openness</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Our north star is maximizing creator agency and freedom. We are committed to remaining open-source and
+                        unrestricted: we want to enable people to build to the limits of their imagination.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Principles -->
+        <section id="principles" class="mx-auto mt-16 max-w-3xl">
+            <h2 class="text-3xl font-bold">Principles</h2>
+            <div class="mt-6 grid gap-5">
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">1) Creator-First</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Basis reduces foundational lift so you can spend time on craft, not scaffolding.
+                    </p>
+                </article>
+
+                <!-- Principle #2 updated previously -->
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">2) Creative Freedom by Design</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        We’re building Basis to maximize creative freedom. By keeping the framework open and moving toward modular boundaries,
+                        we empower developers and communities to build without lock-in or creative compromise.
+                    </p>
+                </article>
+
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">3) Communication is Expression</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        The future of VR isn't <b>just</b> about the enabling technology.
+                        Immersive and interesting experiences are better when they are experienced with other people. To that end, we provide not just the the mechanisms to create or consume these experiences, but to share them as well.
+                    </p>
+                </article>
+
+                <!-- Principle #4 updated -->
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">4) Framework, Not Platform</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Basis is not a Social VR platform. It includes useful primitives, but the core project is not intended to
+                        create the sort of scalable social infrastructure that Social VR platforms require. It does not specifically
+                        obstruct creators who wish to create their own, but the project itself ships <em>frameworks and demos</em>.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Community Feedback / Testimonials -->
+        <section id="community-feedback" class="mx-auto mt-16 max-w-3xl">
+            <h2 class="text-3xl font-bold">Community Feedback We Embrace</h2>
+            <div class="mt-6 space-y-5">
+                <figure class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5 shadow-soft">
+                    <blockquote class="text-gray-800 dark:text-gray-200 italic">
+                        “If you want to appeal beyond a niche, you need brand-conscious messaging… the future of VR is social and cultural.”
+                    </blockquote>
+                    <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400">— Feedback informing our external posture</figcaption>
+                </figure>
+
+                <figure class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5 shadow-soft">
+                    <blockquote class="text-gray-800 dark:text-gray-200 italic">
+                        “It’s okay to be truthful about one’s role. Your product can be good for the industry and still compete for developer attention.”
+                    </blockquote>
+                    <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400">— Feedback informing our authenticity on competition</figcaption>
+                </figure>
+
+                <figure class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5 shadow-soft">
+                    <blockquote class="text-gray-800 dark:text-gray-200 italic">
+                        “People think Basis is a platform because tests run on servers. Keep a hard focus on it being a framework.”
+                    </blockquote>
+                    <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400">— Feedback clarifying our positioning</figcaption>
+                </figure>
+
+                <figure class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5 shadow-soft">
+                    <blockquote class="text-gray-800 dark:text-gray-200 italic">
+                        “Basis should stay a framework—what creators need most are tools.”
+                    </blockquote>
+                    <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400">— Feedback prioritizing creator tools over platformization</figcaption>
+                </figure>
+
+                <figure class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5 shadow-soft">
+                    <blockquote class="text-gray-800 dark:text-gray-200 italic">
+                        “Basis should always be easy for users to get their avatars in.”
+                    </blockquote>
+                    <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400">— Feedback emphasizing accessibility for creators and players</figcaption>
+                </figure>
+            </div>
+        </section>
+
+
+
+        <!-- Scope Separation -->
+        <section id="scope-separation" class="mx-auto mt-16 max-w-3xl">
+            <h2 class="text-3xl font-bold">What We Ship (and Why It’s Separate)</h2>
+            <div class="mt-6 grid gap-5">
+                <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="font-semibold text-xl">Basis Framework</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Unity/C# libraries (MIT) that provide networking, embodiment, spatialization, and core VR utilities.
+                        Intended to become <strong>increasingly unopinionated</strong> over time.
+                    </p>
+                </div>
+                <div class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 p-6 shadow-soft">
+                    <h3 class="font-semibold text-xl">Showroom (Example Demo) — <span class="font-normal">Planned</span></h3>
+                    <p class="mt-2 text-amber-900 dark:text-amber-100">
+                        A neutral example scene showcasing usable features (spawning props, sync’d interactions, avatar basics)
+                        for museums, dataviz, theater, enterprise, and “serious” applications. <strong>In development.</strong>
+                    </p>
+                </div>
+                <div class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 p-6 shadow-soft">
+                    <h3 class="font-semibold text-xl">Community Testbed — <span class="font-normal">Planned</span></h3>
+                    <p class="mt-2 text-amber-900 dark:text-amber-100">
+                        An experimental client we’ll use to collaborate and strain-test features (successor to today’s ad-hoc tests).
+                        <em>Not</em> the public-facing showcase, and may change rapidly. <strong>In development.</strong>
+                    </p>
+                </div>
+            </div>
+            <p class="mt-5 text-sm text-gray-600 dark:text-gray-400">
+                We may split code into distinct repositories for clarity (Framework ↔ Showroom ↔ Testbed) while keeping example/demo code easy to find.
+            </p>
+        </section>
+
+        <!-- Developer Experience -->
+        <section id="dev-experience" class="mx-auto mt-16 max-w-3xl">
+            <h2 class="text-3xl font-bold">Developer Experience: Our Commitments</h2>
+            <div class="mt-6 grid gap-5">
+                <div class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">Example Scenes (Planned)</h3>
+                    <ul class="mt-2 list-disc pl-5 text-amber-900 dark:text-amber-100 space-y-1">
+                        <li><strong>Showroom scene:</strong> vanilla props (e.g., car, robots), conservative defaults, multi-user basics.</li>
+                        <li><strong>Feature tour:</strong> presence, interaction, networking, basic UI, spawn/despawn.</li>
+                    </ul>
+                </div>
+                <div class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">“5-Minute Run” Quickstart (In Development)</h3>
+                    <p class="mt-2 text-amber-900 dark:text-amber-100">
+                        A short doc that gets you from clone → open project → press Play in an example scene with callouts on where the magic lives.
+                    </p>
+                </div>
+                <div class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 shadow-soft p-6">
+                    <h3 class="text-xl font-semibold">Modular Packages (Roadmap)</h3>
+                    <p class="mt-2 text-amber-900 dark:text-amber-100">
+                        We aim to ship Basis modules as Unity packages so you can adopt parts (e.g., networking) without pulling in the whole stack.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Makes Basis Awesome -->
+        <section id="awesome" class="mx-auto mt-16 max-w-3xl">
+            <h2 class="text-3xl font-bold">What Makes Basis Awesome</h2>
+            <div class="mt-6 space-y-5">
+
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Whitelabel & Self-Hostable</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Basis is a <strong>whitelabel, self-hostable VR framework</strong> built for flexibility.
+                        You can fully rebrand and customize it into your own dedicated VR space, whether that’s
+                        a cozy single venue for social hangouts or a large-scale multiplayer world.
+                        Player assets remain compatible across instances, giving developers the tools
+                        to launch thriving, interconnected creative ecosystems.
+                    </p>
+                </article>
+
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Proven Scale</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Basis has already shown <strong>high concurrency performance</strong> in single-instance
+                        environments through extensive community load testing. Ongoing stress sessions
+                        ensure we continue to raise the bar for what’s possible in networked VR.
+                    </p>
+                </article>
+
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Community Events & Load Tests</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Our <strong>chat-and-chill load tests</strong> bring together developers, creators,
+                        and curious explorers to socialize, collaborate, and push concurrency limits.
+                        These events are equal parts fun and crucial for stress-testing Basis at scale,
+                        helping us prepare for the next generation of networked VR.
+                    </p>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        Interested in joining? <strong>Basis isn’t publicly available on Steam yet</strong>,
+                        but you can request a key from our admin team in Discord. Once approved, download
+                        the Basis project on Steam and connect with our community for onboarding, support,
+                        and avatar porting assistance for Unity-based assets.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Rising Tide Lifts All Boats -->
+        <section id="open-infra" class="mx-auto mt-16 max-w-3xl">
+            <h2 class="text-3xl font-bold">Rising Tide Lifts All Boats</h2>
+            <div class="mt-6 grid gap-5">
+                <article class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">No Vendor Lock-In</h3>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300">
+                        Our intent is to avoid centralized chokepoints. You should be able to host your own services and choose discovery approaches that fit your needs.
+                    </p>
+                </article>
+                <article class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Federated Discovery (Experimental / Contrib)</h3>
+                    <p class="mt-2 text-amber-900 dark:text-amber-100">
+                        We’re exploring discovery with other <em>contrib</em> files and community input. The long-term direction is federation and shared aggregation—<strong>work in progress</strong>.
+                    </p>
+                </article>
+                <article class="rounded-2xl border border-amber-300/70 dark:border-amber-200/20 bg-amber-50/70 dark:bg-amber-200/10 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Interoperability & Clear Boundaries (Future)</h3>
+                    <p class="mt-2 text-amber-900 dark:text-amber-100">
+                        Our goal is documented protocols and minimal client assumptions so different apps can participate. <strong>Aspirational; not fully implemented.</strong>
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Positioning & Scope -->
+        <section id="positioning" class="mx-auto mt-16 max-w-3xl">
+            <h2 class="text-3xl font-bold">Positioning & Scope</h2>
+            <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="font-semibold">What Basis Is</h3>
+                    <ul class="mt-3 text-gray-700 dark:text-gray-300 space-y-2 list-disc pl-5">
+                        <li>A Unity/C# framework with libraries and a demo</li>
+                        <li>Bootstraps presence, spatialization, embodiment</li>
+                        <li>MIT-licensed, open development</li>
+                        <li>Usable to build games, events, tools or a platform</li>
+                    </ul>
+                </div>
+                <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-soft">
+                    <h3 class="font-semibold">What Basis Is Not</h3>
+                    <ul class="mt-3 text-gray-700 dark:text-gray-300 space-y-2 list-disc pl-5">
+                        <li>Not a Social VR platform or “world”</li>
+                        <li>Not a walled garden or app store</li>
+                        <li>Not a fixed aesthetic</li>
+                        <li>Not a promise to replace your community strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="mx-auto mt-16 max-w-3xl">
+            <h2 class="text-3xl font-bold">FAQ</h2>
+            <div class="mt-6 divide-y divide-gray-200/70 dark:divide-white/10 rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft">
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">Is Basis a platform?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">No. Basis is a <strong>framework</strong>, a set of libraries and a demo you can extend. You can build a platform with it, but Basis itself does not operate one.</p>
+                </details>
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">Do you support XR ITK?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        We currently recommend our own XR system as the default. Broader modularity to mix-and-match with other stacks is a <strong>roadmap goal</strong>.
+                    </p>
+                </details>
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">Can I replace the demo aesthetics?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">Absolutely. The demo is intentionally neutral and swappable. Use your own avatars, spaces, and style to match your audience.</p>
+                </details>
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">How is Basis funded?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        Through community donations (OpenCollective) and companies funding shared infrastructure. Donations currently support a full-time maintainer (Dooly).
+                    </p>
+                </details>
+                <details class="p-5">
+                    <summary class="cursor-pointer font-semibold">Who runs Basis?</summary>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300">
+                        Basis is operated by <strong>the Pillars</strong>, trusted contributors who keep the project focused and aligned.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="cta" class="mx-auto mt-16 max-w-3xl text-center">
+            <div class="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-soft p-8">
+                <h2 class="text-2xl font-bold">Build with Basis</h2>
+                <p class="mt-3 text-gray-700 dark:text-gray-300">Use the framework. Keep your freedom. Grow with us.</p>
+                <div class="mt-6 flex flex-wrap justify-center gap-3">
+                    <a href="https://github.com/BasisVR/basis" target="_blank"
+                       class="inline-flex items-center gap-2 rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg hover:ring-2 hover:ring-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                       aria-label="Open Basis GitHub repository">
+                        GitHub
+                    </a>
+                    <a href="https://docs.basisvr.org/docs" target="_blank"
+                       class="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow ring-1 ring-gray-200 hover:bg-gray-50 dark:bg-white/10 dark:text-white dark:ring-white/10"
+                       aria-label="Read Basis documentation">
+                        Read the docs
+                    </a>
+                    <a href="https://opencollective.com/basis" target="_blank"
+                       class="inline-flex items-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                       aria-label="Support Basis via OpenCollective">
+                        Support Basis
+                    </a>
+                    <a href="https://discord.gg/v6ve6WT562" target="_blank"
+                       class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                       aria-label="Join Basis Discord">
+                        Join Discord
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mx-auto mt-16 max-w-5xl border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-white/10 dark:text-gray-400 text-center">
+            <p>&copy; <span id="year"></span> BasisVR. MIT Licensed.</p>
+        </footer>
+    </div>
+
+    <!-- Footer Year -->
+    <script src="/footer.js" defer></script>
+    <!-- Flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+</body>
+</html>
